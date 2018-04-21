@@ -6,7 +6,7 @@ Lorem ipsum...
 
 * Philosophy
 * How to design first?
-* Project skeleton
+* Technology Stack
 * Testing
 * Resources
 
