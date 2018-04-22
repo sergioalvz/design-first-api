@@ -4,19 +4,28 @@ Lorem ipsum...
 
 ## Table of Contents
 
-* Philosophy
-* How to design first?
-* Technology Stack
-* Testing
-* Resources
+<!-- TOC -->
 
-## Philosophy
+* [Developing design-first APIs](#developing-design-first-apis)
+  * [Table of Contents](#table-of-contents)
+  * [Design Strategies](#design-strategies)
+  * [How to design first?](#how-to-design-first)
+    * [Tools](#tools)
 
-Since your specification is machine readable, chances are that it could also be _machine writable_. So, should you
-write your specification before writing your business logic or should it be automatically generated from your own code?
-There already exist two different problem solving strategies which sum up both options: **top-down** and **bottom-up**
-(there is [some useful information in Wikipedia](https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design) about
-both terms).
+<!-- /TOC -->
+
+## Design Strategies
+
+There are -at least- two common approaches to design: top-down and bottom-up.
+[Wikipedia](https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design) says:
+
+> Top-down approaches emphasize planning and a complete understanding of the system. It is inherent that no
+> coding can begin until a sufficient level of detail has been reached in the design of at least some part of the
+> system.
+>
+> Bottom-up emphasizes coding and early testing, which can begin as soon as the first module has been
+> specified. This approach, however, runs the risk that modules may be coded without having a clear idea of how
+> they link to other parts of the system, and that such linking may not be as easy as first thought.
 
 ## How to design first?
 
