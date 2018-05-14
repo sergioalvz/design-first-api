@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/sergioalvz/design-first-api#readme",
   "devDependencies": {
+    "prettier": "1.12.1",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
   }
