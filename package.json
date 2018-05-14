@@ -20,6 +20,8 @@
   "homepage": "https://github.com/sergioalvz/design-first-api#readme",
   "devDependencies": {
     "@types/hapi": "^17.0.12",
+    "@types/inert": "^5.1.0",
+    "@types/vision": "^5.3.2",
     "nodemon": "^1.17.4",
     "prettier": "1.12.1",
     "ts-node": "^6.0.3",
@@ -27,6 +29,10 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "hapi": "^17.4.0"
+    "hapi": "^17.4.0",
+    "hapi-swagger": "^9.1.1",
+    "hapi-swaggered-ui": "^3.0.2",
+    "inert": "^5.1.0",
+    "vision": "^5.3.2"
   }
 }
