@@ -15,6 +15,7 @@ A continuación se detallan una serie de razones y tecnologías que posibilitan 
   * [¿Cómo puedo _design-first_?](#¿cómo-puedo-_design-first_)
   * [_Stack_ de ejemplo](#_stack_-de-ejemplo)
     * [Advertencia](#advertencia)
+  * [Referencias](#referencias)
 
 <!-- /TOC -->
 
@@ -45,3 +46,7 @@ Uno de los puntos más interesantes de `hapi` es su integración nativa con [`jo
 ### Advertencia
 
 En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, la tentación sigue estando ahí, ya que vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra lógica de negocio. Mucha literura aconseja utilizar el propio lenguaje de la especificación (`JSON` / `YAML` en el caso de OpenAPI) como un mecanismo para conseguir la máxima indepencia entre la fase de diseño y la fase de implementación.
+
+## Referencias
+
+* [APIs You Won't Hate](https://apisyouwonthate.com/)
