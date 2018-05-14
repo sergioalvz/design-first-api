@@ -14,6 +14,7 @@ A continuación se detallan una serie de razones y tecnologías que posibilitan 
   * [¿Por qué _design first_?](#¿por-qué-_design-first_)
   * [¿Cómo puedo _design-first_?](#¿cómo-puedo-_design-first_)
   * [_Stack_ de ejemplo](#_stack_-de-ejemplo)
+    * [Advertencia](#advertencia)
 
 <!-- /TOC -->
 
@@ -35,8 +36,12 @@ Si bien es cierto que se podría diseñar una API utilizando simplemente papel y
 
 ## _Stack_ de ejemplo
 
-En este repositorio, se adjunta un stack que hace uso de los conceptos y tecnologías anteriores para definir un toolset de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con JSON / YAML (únicos lenguajes soportados nativamente por la herramienta).
+En este repositorio, se adjunta un stack que hace uso de los conceptos y tecnologías anteriores para definir un toolset de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con `JSON` / `YAML` (únicos lenguajes soportados nativamente por la herramienta).
 
 Como pienza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una librería de Node muy sencilla y diseñada específicamente para el desarrollo de APIs REST-like. Por decisiones de diseño, el _core_ de `hapi` es muy pequeño y espera que se complemente su funcionalidad utilizando su vasto ecosistema de plug-ins. Uno de los más populares es [`hapi-swagger`](https://github.com/glennjones/hapi-swagger), que nos permite crear una especificación de OpenAPI a partir de la propia definición de rutas en `hapi`. Existen también otros plug-ins similares como [`hapi-openapi`](https://github.com/krakenjs/hapi-openapi) que funcionan exactamente al revés: a partir de la especificación de OpenAPI (anteriormente conocido como _Swagger_), generar los manejadores de rutas correspondientes.
 
 Uno de los puntos más interesantes de `hapi` es su integración nativa con [`joi`](https://github.com/hapijs/joi), una librería que nos permite definir esquemas de objetos sobre los que poder validar las peticiones y respuestas de nuestra API. Utilizando `joi` y el plugin de OpenAPI comentado anteriormente, somos capaces además de documentar estas restricciones y validaciones en la propia especificación de nuestra API.
+
+### Advertencia
+
+En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, la tentación sigue estando ahí, ya que vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra lógica de negocio. Mucha literura aconseja utilizar el propio lenguaje de la especificación (`JSON` / `YAML` en el caso de OpenAPI) como un mecanismo para conseguir la máxima indepencia entre la fase de diseño y la fase de implementación.
