@@ -1,0 +1,38 @@
+{
+  "name": "design-first-api",
+  "version": "1.0.0",
+  "description": "Este repositorio sirve de complemento para la charla realizada en la sesión de [AsturiasHacking](http://asturiashacking.org) del día 18 de mayo de 2018: **_Design-first en el desarrollo de APIs_**.",
+  "main": "index.js",
+  "scripts": {
+    "start:watch": "nodemon --watch 'src' -e ts --exec 'ts-node' ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergioalvz/design-first-api.git"
+  },
+  "keywords": [],
+  "author": "Sergio Álvarez <sergioalvarezsuarez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergioalvz/design-first-api/issues"
+  },
+  "homepage": "https://github.com/sergioalvz/design-first-api#readme",
+  "devDependencies": {
+    "@types/hapi": "^17.0.12",
+    "@types/inert": "^5.1.0",
+    "@types/vision": "^5.3.2",
+    "nodemon": "^1.17.4",
+    "prettier": "1.12.1",
+    "ts-node": "^6.0.3",
+    "tslint": "^5.10.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "hapi": "^17.4.0",
+    "hapi-swagger": "^9.1.1",
+    "hapi-swaggered-ui": "^3.0.2",
+    "inert": "^5.1.0",
+    "vision": "^5.3.2"
+  }
+}
