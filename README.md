@@ -1,45 +1,42 @@
-# Developing design-first APIs
+# _Design-first_ en el desarrollo de APIs
 
-Lorem ipsum...
+Este repositorio sirve de complemento para la charla realizada en la sesión de
+[AsturiasHacking](http://asturiashacking.org) del día 18 de mayo de 2018: **_Design-first en el desarrollo de APIs_**.
 
-## Table of Contents
+A continuación se detallan una serie de razones y tecnologías que posibilitan el desarrollo de APIs (generalmente REST-like) empezando por su propio diseño en lugar de por su implementación.
+
+## Tabla de contenidos
 
 <!-- TOC -->
 
-* [Developing design-first APIs](#developing-design-first-apis)
-  * [Table of Contents](#table-of-contents)
-  * [Design Strategies](#design-strategies)
-  * [How to design first?](#how-to-design-first)
-    * [Tools](#tools)
+* [_Design-first_ en el desarrollo de APIs](#_design-first_-en-el-desarrollo-de-apis)
+  * [Tabla de contenidos](#tabla-de-contenidos)
+  * [¿Por qué _design first_?](#¿por-qué-_design-first_)
+  * [¿Cómo puedo _design-first_?](#¿cómo-puedo-_design-first_)
+  * [_Stack_ de ejemplo](#_stack_-de-ejemplo)
 
 <!-- /TOC -->
 
-## Design Strategies
+## ¿Por qué _design first_?
 
-There are -at least- two common approaches to design: top-down and bottom-up.
-[Wikipedia](https://en.wikipedia.org/wiki/Top-down_and_bottom-up_design) says:
+Algunos de los beneficios de arrancar con el diseño de una API antes incluso de implementar una sola línea de su lógica de negocio son:
 
-> Top-down approaches emphasize planning and a complete understanding of the system. It is inherent that no
-> coding can begin until a sufficient level of detail has been reached in the design of at least some part of the
-> system.
->
-> Bottom-up emphasizes coding and early testing, which can begin as soon as the first module has been
-> specified. This approach, however, runs the risk that modules may be coded without having a clear idea of how
-> they link to other parts of the system, and that such linking may not be as easy as first thought.
+* **Dedicar tiempo a** lo que realmente importa: **conocer el dominio del problema**.
+* **Evitar** la tentación de **ajustar el diseño a un desarrollo ya existente**. Y, por lo general, ofrecer una solución más coherente y más orientada al propio consumidor del servicio.
+* **Documentación**: bien sea a través de un lenguaje de especificación de APIs o a través de otro tipo de documento.
+* Capacidad de **probar el diseño** y realizar cambios **cuando el coste aún es mínimo** (wut?!)
+* Favorecer la independencia entre equipos y el desarrollo en paralelo de nueva funcionalidad que depende de una API común
 
-## How to design first?
+## ¿Cómo puedo _design-first_?
 
-Maybe one of the most important things when trying to implement your REST API by following a design-first approach is
-to choose a specification format to express your API design choices before writing any single line of code.
+Si bien es cierto que se podría diseñar una API utilizando simplemente papel y lápiz, existen herramientas más potentes que nos permiten expresar nuestras decisiones de diseño de una manera mucho más concreta y formal.
 
-Although even a PDF document could serve to achieve this goal, using a formal language in a machine-readable format may
-offer some of the following advantages:
+[OpenAPI](https://www.openapis.org/) o [API Blueprint](https://apiblueprint.org/) son dos ejemplos de lenguajes orientados a describir APIs en un formato _machine readable_, lo que permite a su vez que otros programas puedan entender esta especificación para generar código que permita consumir dichos servicios, validarlos, documentarlos, etc.
 
-* Have a **concise** and **common language** to express complex concepts
-* Have a specification which could be **understood by other software** to generate: documentation, validations,
-  clients and so on.
+## _Stack_ de ejemplo
 
-### Tools
+En este repositorio, se adjunta un stack que hace uso de los conceptos y tecnologías anteriores para definir un toolset de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con JSON / YAML (únicos lenguajes soportados nativamente por la herramienta).
 
-* **[OpenAPI](https://www.openapis.org/)** (formerly **[Swagger](https://swagger.io/)**)
-* **[API Blueprint](https://apiblueprint.org/)**
+Como pienza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una librería de Node muy sencilla y diseñada específicamente para el desarrollo de APIs REST-like. Por decisiones de diseño, el _core_ de `hapi` es muy pequeño y espera que se complemente su funcionalidad utilizando su vasto ecosistema de plug-ins. Uno de los más populares es [`hapi-swagger`](https://github.com/glennjones/hapi-swagger), que nos permite crear una especificación de OpenAPI a partir de la propia definición de rutas en `hapi`. Existen también otros plug-ins similares como [`hapi-openapi`](https://github.com/krakenjs/hapi-openapi) que funcionan exactamente al revés: a partir de la especificación de OpenAPI (anteriormente conocido como _Swagger_), generar los manejadores de rutas correspondientes.
+
+Uno de los puntos más interesantes de `hapi` es su integración nativa con [`joi`](https://github.com/hapijs/joi), una librería que nos permite definir esquemas de objetos sobre los que poder validar las peticiones y respuestas de nuestra API. Utilizando `joi` y el plugin de OpenAPI comentado anteriormente, somos capaces además de documentar estas restricciones y validaciones en la propia especificación de nuestra API.
