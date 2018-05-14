@@ -22,11 +22,11 @@ A continuación se detallan una serie de razones y tecnologías que posibilitan 
 
 Algunos de los beneficios de arrancar con el diseño de una API antes incluso de implementar una sola línea de su lógica de negocio son:
 
-* **Dedicar tiempo a** lo que realmente importa: **conocer el dominio del problema**.
-* **Evitar** la tentación de **ajustar el diseño a un desarrollo ya existente**. Y, por lo general, ofrecer una solución más coherente y más orientada al propio consumidor del servicio.
-* **Documentación**: bien sea a través de un lenguaje de especificación de APIs o a través de otro tipo de documento.
+* **Dedicar tiempo a** lo que realmente importa: **conocer el dominio del problema**
+* **Evitar** la tentación de **ajustar el diseño a un desarrollo ya existente**. Y, por lo general, ofrecer una **solución más coherente y** más **orientada al** propio **consumidor** del servicio
+* **Documentación**: bien sea a través de un lenguaje de especificación de APIs o a través de otro tipo de documento
 * Capacidad de **probar el diseño** y realizar cambios **cuando el coste aún es mínimo** (wut?!)
-* Favorecer la independencia entre equipos y el desarrollo en paralelo de nueva funcionalidad que depende de una API común
+* Favorecer la independencia entre equipos y el desarrollo en paralelo de nueva funcionalidad que dependa de una API común
 
 ## ¿Cómo puedo _design-first_?
 
