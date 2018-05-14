@@ -1,0 +1,21 @@
+{
+  "name": "design-first-api",
+  "version": "1.0.0",
+  "description":
+    "Este repositorio sirve de complemento para la charla realizada en la sesión de [AsturiasHacking](http://asturiashacking.org) del día 18 de mayo de 2018: **_Design-first en el desarrollo de APIs_**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergioalvz/design-first-api.git"
+  },
+  "keywords": [],
+  "author": "Sergio Álvarez <sergioalvarezsuarez@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergioalvz/design-first-api/issues"
+  },
+  "homepage": "https://github.com/sergioalvz/design-first-api#readme"
+}
