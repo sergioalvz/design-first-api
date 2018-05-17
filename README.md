@@ -36,13 +36,13 @@ Si bien es cierto que se podría diseñar una API utilizando simplemente papel y
 
 [OpenAPI](https://www.openapis.org/) o [API Blueprint](https://apiblueprint.org/) son dos ejemplos de lenguajes orientados a describir APIs en un formato _machine readable_, lo que permite a su vez que otros programas puedan entender esta especificación para generar código que permita consumir dichos servicios, validarlos, documentarlos, etc.
 
-Ambas alternativas soportan su propio lenguaje de especificación; en el caso de OpenAPI, permite que la descripción sea desarrollada utilizando `JSON` o `YAML`, mientras que API Blueprint tiene [su propio lenguaje](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md), influenciado en parte por Markdown.
+Ambas alternativas soportan su propio lenguaje de especificación; en el caso de OpenAPI, permite que la descripción sea desarrollada utilizando JSON o YAML, mientras que API Blueprint tiene [su propio lenguaje](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md), influenciado en parte por la sintaxis de Markdown.
 
 La mayor ventaja de utilizar este tipo de herramientas es que, desde su concepción, están pensadas para poder expresar el diseño de cualquier API, por lo que soportan la definición de rutas, validaciones, esquemas de autenticación, cabeceras de peticiones y respuestas, etc.
 
 ## Proyecto de ejemplo
 
-En este repositorio, se adjunta un _stack_ que hace uso de los conceptos y tecnologías anteriores para definir un _toolset_ de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con `JSON` / `YAML` (únicos lenguajes soportados nativamente por la herramienta).
+En este repositorio, se adjunta un _stack_ que hace uso de los conceptos y tecnologías anteriores para definir un _toolset_ de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con JSON / YAML (únicos lenguajes soportados nativamente por la herramienta).
 
 Como pieza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una librería de [Node](https://nodejs.org/en/) muy sencilla y diseñada específicamente para el desarrollo de APIs REST-like. Por decisiones de diseño, el _core_ de `hapi` es muy pequeño y espera que se complemente su funcionalidad utilizando su vasto ecosistema de plug-ins. Uno de los más populares es [`hapi-swagger`](https://github.com/glennjones/hapi-swagger), que nos permite crear una especificación de OpenAPI a partir de la propia definición de rutas en `hapi`. Existen también otros plug-ins similares como [`hapi-openapi`](https://github.com/krakenjs/hapi-openapi) que funcionan exactamente al revés: a partir de la especificación de OpenAPI (anteriormente conocido como _Swagger_), generar los manejadores de rutas correspondientes.
 
@@ -62,7 +62,7 @@ Para ejecutar los tests de la aplicación, basta con escribir: `npm run test` en
 
 ### Advertencia
 
-En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, la tentación sigue estando ahí, ya que vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra lógica de negocio. Mucha literura aconseja utilizar el propio lenguaje de la especificación (`JSON` / `YAML` en el caso de OpenAPI) como un mecanismo para conseguir la máxima indepencia entre la fase de diseño y la fase de implementación.
+En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, la tentación sigue estando ahí, ya que vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra lógica de negocio. Mucha literura aconseja utilizar el propio lenguaje de la especificación (JSON / YAML en el caso de OpenAPI) como un mecanismo para conseguir la máxima indepencia entre la fase de diseño y la fase de implementación.
 
 ## Referencias, más herramientas y enlaces de interés
 
