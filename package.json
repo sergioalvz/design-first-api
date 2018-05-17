@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:watch": "nodemon --watch 'src' -e ts --exec 'ts-node' ./src/index.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage",
+    "test:watch": "jest --watch --coverage"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,12 @@
   "devDependencies": {
     "@types/hapi": "^17.0.12",
     "@types/inert": "^5.1.0",
+    "@types/jest": "^22.2.3",
     "@types/vision": "^5.3.2",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.4",
     "prettier": "1.12.1",
+    "ts-jest": "^22.4.6",
     "ts-node": "^6.0.3",
     "tslint": "^5.10.0",
     "typescript": "^2.8.3"
@@ -34,5 +38,19 @@
     "hapi-swaggered-ui": "^3.0.2",
     "inert": "^5.1.0",
     "vision": "^5.3.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
