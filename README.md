@@ -13,9 +13,9 @@ A continuación se detallan una serie de razones y tecnologías que posibilitan 
   - [¿Por qué _design-first_?](#¿por-qué-_design-first_)
   - [¿Cómo puedo _design-first_?](#¿cómo-puedo-_design-first_)
   - [Proyecto de ejemplo](#proyecto-de-ejemplo)
+    - [Advertencia](#advertencia)
     - [¿Cómo arrancar el proyecto?](#¿cómo-arrancar-el-proyecto)
     - [¿Cómo ejecuto los tests?](#¿cómo-ejecuto-los-tests)
-    - [Advertencia](#advertencia)
   - [Referencias, más herramientas y enlaces de interés](#referencias-más-herramientas-y-enlaces-de-interés)
 
 <!-- /TOC -->
@@ -48,9 +48,15 @@ Como pieza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una lib
 
 Uno de los puntos más interesantes de `hapi` es su integración nativa con [`joi`](https://github.com/hapijs/joi), una librería que nos permite definir esquemas de objetos sobre los que poder validar las peticiones y respuestas de nuestra API. Utilizando `joi` y el plugin de OpenAPI comentado anteriormente, somos capaces además de documentar estas restricciones y validaciones en la propia especificación de nuestra API.
 
+### Advertencia
+
+En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, sin embargo, vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra implementación, asumiendo esto como un _trade-off_ para equilibrar el esfuerzo invertido (en aprender una especificación o incluso un lenguaje nuevo) contra el valor obtenido (obtener un flujo de trabajo en el que podamos desarrollar una especificación formal de nuestra API antes de arrancar con su implementación).
+
+Mucha literura aconseja utilizar el propio lenguaje de la especificación (JSON / YAML en el caso de OpenAPI) como un mecanismo para conseguir la máxima independencia entre la fase de diseño y la fase de implementación.
+
 ### ¿Cómo arrancar el proyecto?
 
-> Prerrequisito: para trabajar con este proyecto es necesario tener instalado `node` (y por ende, `npm`).
+> Prerrequisito: para trabajar con este proyecto es necesario tener instalado `node`.
 
 Lo primero (un vez descargado, clonado o hecho un _fork_ del proyecto) es instalar sus dependencias. Todas ellas están definidas en el fichero `package.json`, por lo que con ejecutar el comando `npm install` desde la raíz del proyecto debería ser suficiente.
 
@@ -60,11 +66,7 @@ Una vez hecho esto, existe una tarea de `npm` destinada a arrancar el proyecto y
 
 ### ¿Cómo ejecuto los tests?
 
-Con las dependencias ya instaladas, basta con escribir: `npm run test` en vuestra terminal (desde la raíz del proyecto) para poder ejecutar la _suite_ de test.
-
-### Advertencia
-
-En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, la tentación sigue estando ahí, ya que vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra lógica de negocio. Mucha literura aconseja utilizar el propio lenguaje de la especificación (JSON / YAML en el caso de OpenAPI) como un mecanismo para conseguir la máxima indepencia entre la fase de diseño y la fase de implementación.
+Con las dependencias ya instaladas, basta con escribir: `npm run test` en vuestra terminal (desde la raíz del proyecto) para poder ejecutar la _suite_ de tests.
 
 ## Referencias, más herramientas y enlaces de interés
 
