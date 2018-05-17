@@ -7,6 +7,7 @@ export function route(): ServerRoute {
   return {
     method: "GET",
     options: {
+      description: "Dummy endpoint to say hi",
       handler(req: Request) {
         return {
           greeting: req.params.name,
@@ -20,7 +21,9 @@ export function route(): ServerRoute {
       tags: ["api"],
       validate: {
         params: {
-          name: string().required(),
+          name: string()
+            .description("Audience you would like to say hi")
+            .required(),
         },
       },
     },
