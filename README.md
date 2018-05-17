@@ -52,9 +52,11 @@ Uno de los puntos más interesantes de `hapi` es su integración nativa con [`jo
 
 > Prerrequisito: para trabajar con este proyecto es necesario tener instalado `node` (y por ende, `npm`).
 
-Lo primero, un vez descargado, clonado o hecho un _fork_ del proyecto, es instalar sus dependencias. Todas ellas están definidas en el fichero `package.json`, por lo que con ejecutar el comando `npm install` desde la raíz del proyecto debería ser suficiente.
+Lo primero (un vez descargado, clonado o hecho un _fork_ del proyecto) es instalar sus dependencias. Todas ellas están definidas en el fichero `package.json`, por lo que con ejecutar el comando `npm install` desde la raíz del proyecto debería ser suficiente.
 
-Una vez hecho esto, existe una tarea en el fichero anterior destinada a arrancar el proyecto y configurar también un servicio de _hot reloading_ para poder ver los cambios al vuelo: `npm run watch` deberá arrancar la aplicación y hacerla accesible en la dirección: <http://localhost:8080>.
+Una vez hecho esto, existe una tarea de `npm` destinada a arrancar el proyecto y configurar también un servicio de _hot reloading_ para poder ver los cambios de manera instantánea (sin necesidad de parar y arrancar de nuevo el servidor):
+
+- `npm run start:watch` arranca la aplicación y la hace accesible a través de la dirección: <http://localhost:8080>.
 
 ### ¿Cómo ejecuto los tests?
 
