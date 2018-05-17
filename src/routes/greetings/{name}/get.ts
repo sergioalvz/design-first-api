@@ -10,7 +10,7 @@ export function route(): ServerRoute {
       description: "Dummy endpoint to say hi",
       handler(req: Request) {
         return {
-          greeting: req.params.name,
+          greeting: `Hi ${req.params.name}!`,
         };
       },
       response: {
