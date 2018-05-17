@@ -10,7 +10,7 @@ export function openapi(): any[] {
     {
       options: {
         documentationPage: false,
-        host: "http://localhost:8080",
+        host: "localhost:8080",
         info: {
           title: "Design-first API",
           version: "1.0.0",
