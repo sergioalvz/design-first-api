@@ -1,7 +1,6 @@
 # _Design-first_ en el desarrollo de APIs
 
-Este repositorio sirve de complemento para la charla realizada en la sesión de
-[AsturiasHacking](http://asturiashacking.org) del día 18 de mayo de 2018: **_Design-first en el desarrollo de APIs_**.
+Este repositorio sirve de complemento para: **_Design-first en el desarrollo de APIs_**, una charla organizada por [AsturiasHacking](http://asturiashacking.org) el día 18 de mayo de 2018.
 
 A continuación se detallan una serie de razones y tecnologías que posibilitan el desarrollo de APIs (generalmente REST-like) empezando por su propio diseño en lugar de por su implementación.
 
@@ -9,25 +8,27 @@ A continuación se detallan una serie de razones y tecnologías que posibilitan 
 
 <!-- TOC -->
 
-* [_Design-first_ en el desarrollo de APIs](#_design-first_-en-el-desarrollo-de-apis)
-  * [Tabla de contenidos](#tabla-de-contenidos)
-  * [¿Por qué _design first_?](#¿por-qué-_design-first_)
-  * [¿Cómo puedo _design-first_?](#¿cómo-puedo-_design-first_)
-  * [_Stack_ de ejemplo](#_stack_-de-ejemplo)
-    * [Advertencia](#advertencia)
-  * [Referencias](#referencias)
+- [_Design-first_ en el desarrollo de APIs](#_design-first_-en-el-desarrollo-de-apis)
+  - [Tabla de contenidos](#tabla-de-contenidos)
+  - [¿Por qué _design-first_?](#¿por-qué-_design-first_)
+  - [¿Cómo puedo _design-first_?](#¿cómo-puedo-_design-first_)
+  - [Proyecto de ejemplo](#proyecto-de-ejemplo)
+    - [¿Cómo arrancar el proyecto?](#¿cómo-arrancar-el-proyecto)
+    - [¿Cómo ejecuto los tests?](#¿cómo-ejecuto-los-tests)
+    - [Advertencia](#advertencia)
+  - [Referencias, más herramientas y enlaces de interés](#referencias-más-herramientas-y-enlaces-de-interés)
 
 <!-- /TOC -->
 
-## ¿Por qué _design first_?
+## ¿Por qué _design-first_?
 
 Algunos de los beneficios de arrancar con el diseño de una API antes incluso de implementar una sola línea de su lógica de negocio son:
 
-* **Dedicar tiempo a** lo que realmente importa: **conocer el dominio del problema**
-* **Evitar** la tentación de **ajustar el diseño a un desarrollo ya existente**. Y, por lo general, ofrecer una **solución más coherente y** más **orientada al** propio **consumidor** del servicio
-* **Documentación**: bien sea a través de un lenguaje de especificación de APIs o a través de otro tipo de documento
-* Capacidad de **probar el diseño** y realizar cambios **cuando el coste aún es mínimo** (wut?!)
-* Favorecer la independencia entre equipos y el desarrollo en paralelo de nueva funcionalidad que dependa de una API común
+- **Dedicar tiempo a** lo que realmente importa: **conocer el dominio del problema**
+- **Evitar** la tentación de **ajustar el diseño a un desarrollo ya existente**. Y, por lo general, ofrecer una **solución más coherente y** más **orientada al** propio **consumidor** del servicio
+- **Documentación**: bien sea a través de un lenguaje de especificación de APIs o a través de otro tipo de documento
+- Capacidad de **probar el diseño** y realizar cambios **cuando el coste aún es mínimo** (wut?!)
+  - Favorece la independencia entre equipos y el desarrollo en paralelo de nueva funcionalidad que dependa de una API común
 
 ## ¿Cómo puedo _design-first_?
 
@@ -35,18 +36,37 @@ Si bien es cierto que se podría diseñar una API utilizando simplemente papel y
 
 [OpenAPI](https://www.openapis.org/) o [API Blueprint](https://apiblueprint.org/) son dos ejemplos de lenguajes orientados a describir APIs en un formato _machine readable_, lo que permite a su vez que otros programas puedan entender esta especificación para generar código que permita consumir dichos servicios, validarlos, documentarlos, etc.
 
-## _Stack_ de ejemplo
+Ambas alternativas soportan su propio lenguaje de especificación; en el caso de OpenAPI, permite que la descripción sea desarrollada utilizando `JSON` o `YAML`, mientras que API Blueprint tiene [su propio lenguaje](https://github.com/apiaryio/api-blueprint/blob/master/API%20Blueprint%20Specification.md), influenciado en parte por Markdown.
 
-En este repositorio, se adjunta un stack que hace uso de los conceptos y tecnologías anteriores para definir un toolset de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con `JSON` / `YAML` (únicos lenguajes soportados nativamente por la herramienta).
+La mayor ventaja de utilizar este tipo de herramientas es que, desde su concepción, están pensadas para poder expresar el diseño de cualquier API, por lo que soportan la definición de rutas, validaciones, esquemas de autenticación, cabeceras de peticiones y respuestas, etc.
 
-Como pieza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una librería de Node muy sencilla y diseñada específicamente para el desarrollo de APIs REST-like. Por decisiones de diseño, el _core_ de `hapi` es muy pequeño y espera que se complemente su funcionalidad utilizando su vasto ecosistema de plug-ins. Uno de los más populares es [`hapi-swagger`](https://github.com/glennjones/hapi-swagger), que nos permite crear una especificación de OpenAPI a partir de la propia definición de rutas en `hapi`. Existen también otros plug-ins similares como [`hapi-openapi`](https://github.com/krakenjs/hapi-openapi) que funcionan exactamente al revés: a partir de la especificación de OpenAPI (anteriormente conocido como _Swagger_), generar los manejadores de rutas correspondientes.
+## Proyecto de ejemplo
+
+En este repositorio, se adjunta un _stack_ que hace uso de los conceptos y tecnologías anteriores para definir un _toolset_ de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con `JSON` / `YAML` (únicos lenguajes soportados nativamente por la herramienta).
+
+Como pieza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una librería de [Node](https://nodejs.org/en/) muy sencilla y diseñada específicamente para el desarrollo de APIs REST-like. Por decisiones de diseño, el _core_ de `hapi` es muy pequeño y espera que se complemente su funcionalidad utilizando su vasto ecosistema de plug-ins. Uno de los más populares es [`hapi-swagger`](https://github.com/glennjones/hapi-swagger), que nos permite crear una especificación de OpenAPI a partir de la propia definición de rutas en `hapi`. Existen también otros plug-ins similares como [`hapi-openapi`](https://github.com/krakenjs/hapi-openapi) que funcionan exactamente al revés: a partir de la especificación de OpenAPI (anteriormente conocido como _Swagger_), generar los manejadores de rutas correspondientes.
 
 Uno de los puntos más interesantes de `hapi` es su integración nativa con [`joi`](https://github.com/hapijs/joi), una librería que nos permite definir esquemas de objetos sobre los que poder validar las peticiones y respuestas de nuestra API. Utilizando `joi` y el plugin de OpenAPI comentado anteriormente, somos capaces además de documentar estas restricciones y validaciones en la propia especificación de nuestra API.
+
+### ¿Cómo arrancar el proyecto?
+
+> Prerrequisito: para trabajar con este proyecto es necesario tener instalado `node` (y por ende, `npm`).
+
+Lo primero, un vez descargado, clonado o hecho un _fork_ del proyecto, es instalar sus dependencias. Todas ellas están definidas en el fichero `package.json`, por lo que con ejecutar el comando `npm install` desde la raíz del proyecto debería ser suficiente.
+
+Una vez hecho esto, existe una tarea en el fichero anterior destinada a arrancar el proyecto y configurar también un servicio de _hot reloading_ para poder ver los cambios al vuelo: `npm run watch` deberá arrancar la aplicación y hacerla accesible en la dirección: <http://localhost:8080>.
+
+### ¿Cómo ejecuto los tests?
+
+Para ejecutar los tests de la aplicación, basta con escribir: `npm run test` en vuestra terminal (desde la raíz del proyecto).
 
 ### Advertencia
 
 En uno de los puntos anteriores, se esgrimía que el diseño primero que la implementación ofrecía la posibilidad de evitar la tentación de acoplar nuestro diseño a un desarrollo ya vigente. Con el enfoque propuesto en este proyecto, la tentación sigue estando ahí, ya que vamos a escribir la especificación desde el mismo punto desde el que después añadiremos nuestra lógica de negocio. Mucha literura aconseja utilizar el propio lenguaje de la especificación (`JSON` / `YAML` en el caso de OpenAPI) como un mecanismo para conseguir la máxima indepencia entre la fase de diseño y la fase de implementación.
 
-## Referencias
+## Referencias, más herramientas y enlaces de interés
 
-* [APIs You Won't Hate](https://apisyouwonthate.com/)
+- [APIs You Won't Hate](https://apisyouwonthate.com/)
+- [Design-first API Specification Workflow Matures](https://philsturgeon.uk/api/2018/03/01/api-specification-workflow-matures/)
+- [apiaryio/dredd](https://github.com/apiaryio/dredd)
+- [wework/speccy](https://github.com/wework/speccy)
