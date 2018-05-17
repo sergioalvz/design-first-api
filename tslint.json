@@ -4,6 +4,8 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "object-literal-key-quotes": false
+    },
     "rulesDirectory": []
 }

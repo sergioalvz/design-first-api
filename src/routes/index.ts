@@ -1,7 +1,7 @@
 import { Server } from "hapi";
 
-import { route as sayHi } from "./greetings/{name}/get";
+import { route as PostToGreetings } from "./greetings/{audience}/post";
 
 export function mount(server: Server) {
-  server.route(sayHi());
+  server.route(PostToGreetings());
 }
