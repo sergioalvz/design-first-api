@@ -58,7 +58,7 @@ Una vez hecho esto, existe una tarea en el fichero anterior destinada a arrancar
 
 ### ¿Cómo ejecuto los tests?
 
-Para ejecutar los tests de la aplicación, basta con escribir: `npm run test` en vuestra terminal (desde la raíz del proyecto).
+Con las dependencias ya instaladas, basta con escribir: `npm run test` en vuestra terminal (desde la raíz del proyecto) para poder ejecutar la _suite_ de test.
 
 ### Advertencia
 
