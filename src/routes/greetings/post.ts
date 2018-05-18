@@ -1,7 +1,6 @@
 import { ServerRoute } from "hapi";
-import { string } from "joi";
 
-import { greetingRequest, greetingResponse } from "../../../schemas/greeting";
+import { greeting } from "../../schemas/greeting";
 
 export function route(): ServerRoute {
   return {
@@ -9,7 +8,7 @@ export function route(): ServerRoute {
     options: {
       description: "Dummy endpoint to say hi",
       handler() {
-        return { greeting: "Hey!", lang: "en" };
+        return { greeting: "Hey audience!", lang: "en" };
       },
       plugins: {
         "hapi-swagger": {
@@ -20,19 +19,14 @@ export function route(): ServerRoute {
       },
       response: {
         status: {
-          200: greetingResponse().required(),
+          200: greeting().required(),
         },
       },
       tags: ["api"],
       validate: {
-        params: {
-          audience: string()
-            .description("Audience you would like to say hi")
-            .required(),
-        },
-        payload: greetingRequest().required(),
+        payload: greeting().required(),
       },
     },
-    path: "/greetings/{audience}",
+    path: "/greetings",
   };
 }

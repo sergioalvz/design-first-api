@@ -1,15 +1,16 @@
-import { createServer } from "../../../../src/server";
+import { createServer } from "../../../src/server";
 
-describe("POST /greetings/{audience}", () => {
+describe("POST /greetings", () => {
   it("returns a 200 HTTP code if everything goes fine", async () => {
     const server = await createServer();
 
     const response = await server.inject({
       method: "POST",
       payload: {
+        audience: "AsturiasHacking",
         lang: "es",
       },
-      url: "/greetings/asturiashacking",
+      url: "/greetings",
     });
 
     expect(response.statusCode).toBe(200);
@@ -23,7 +24,7 @@ describe("POST /greetings/{audience}", () => {
       payload: {
         lang: "fr",
       },
-      url: "/greetings/asturiashacking",
+      url: "/greetings",
     });
 
     expect(response.statusCode).toBe(400);

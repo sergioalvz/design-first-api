@@ -1,20 +1,15 @@
 import { object, string } from "joi";
 
-export function greetingRequest() {
+export function greeting() {
   return object({
+    audience: string()
+      .description("Audience you would like to say hi")
+      .example("AsturiasHacking"),
+    greeting: string()
+      .description("A greeting")
+      .example("Hi people from Asturias!"),
     lang: string()
       .description("Language to greet")
-      .valid(["es", "en"])
-      .required(),
-  }).label("GreetingRequest");
-}
-
-export function greetingResponse() {
-  return greetingRequest()
-    .keys({
-      greeting: string()
-        .description("A greeting")
-        .example("Hi people from Asturias!"),
-    })
-    .label("GreetingResponse");
+      .valid(["es", "en"]),
+  }).label("Greeting");
 }
