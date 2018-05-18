@@ -1,6 +1,6 @@
 # _Design-first_ en el desarrollo de APIs
 
-Este repositorio sirve de complemento para: **_Design-first en el desarrollo de APIs_**, una charla organizada por [AsturiasHacking](http://asturiashacking.org) el día 18 de mayo de 2018.
+Este repositorio sirve de complemento para: [**_Design-first en el desarrollo de APIs_**](https://www.meetup.com/AsturiasHacking/events/249100549/), una charla organizada por [AsturiasHacking](http://asturiashacking.org) el día 18 de mayo de 2018.
 
 A continuación se detallan una serie de razones y tecnologías que posibilitan el desarrollo de APIs (generalmente REST-like) empezando por su propio diseño en lugar de por su implementación.
 
