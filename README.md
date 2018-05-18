@@ -26,8 +26,8 @@ Algunos de los beneficios de arrancar con el diseño de una API antes incluso de
 
 - **Dedicar tiempo a** lo que realmente importa: **conocer el dominio del problema**
 - **Evitar** la tentación de **ajustar el diseño a un desarrollo ya existente**. Y, por lo general, ofrecer una **solución más coherente y** más **orientada al** propio **consumidor** del servicio
-- **Documentación**: bien sea a través de un lenguaje de especificación de APIs o a través de otro tipo de documento
-- Capacidad de **probar el diseño** y realizar cambios **cuando el coste aún es mínimo** (wut?!)
+- **Documentación**: bien sea a través de un lenguaje de descripción de APIs o a través de otro tipo de documento
+- Capacidad de **probar el diseño** y realizar cambios **cuando el coste aún es mínimo**
   - Favorece la independencia entre equipos y el desarrollo en paralelo de nueva funcionalidad que dependa de una API común
 
 ## ¿Cómo puedo _design-first_?
@@ -42,7 +42,7 @@ La mayor ventaja de utilizar este tipo de herramientas es que, desde su concepci
 
 ## Proyecto de ejemplo
 
-En este repositorio, se adjunta un _stack_ que hace uso de los conceptos y tecnologías anteriores para definir un _toolset_ de herramientas que permitan la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con JSON / YAML (únicos lenguajes soportados nativamente por la herramienta).
+En este repositorio, se adjunta un esqueleto de proyecto que hace uso de los conceptos y tecnologías anteriores para definir un _toolset_ que permita la generación _rápida_ de una especificación de OpenAPI utilizando código JavaScript (TypeScript) en lugar de trabajar directamente con JSON / YAML (únicos lenguajes soportados nativamente por la herramienta).
 
 Como pieza central del proyecto, tenemos a [`hapi`](https://hapijs.com), una librería de [Node](https://nodejs.org/en/) muy sencilla y diseñada específicamente para el desarrollo de APIs REST-like. Por decisiones de diseño, el _core_ de `hapi` es muy pequeño y espera que se complemente su funcionalidad utilizando su vasto ecosistema de plug-ins. Uno de los más populares es [`hapi-swagger`](https://github.com/glennjones/hapi-swagger), que nos permite crear una especificación de OpenAPI a partir de la propia definición de rutas en `hapi`. Existen también otros plug-ins similares como [`hapi-openapi`](https://github.com/krakenjs/hapi-openapi) que funcionan exactamente al revés: a partir de la especificación de OpenAPI (anteriormente conocido como _Swagger_), generar los manejadores de rutas correspondientes.
 
