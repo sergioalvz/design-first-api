@@ -56,7 +56,7 @@ Mucha literura aconseja utilizar el propio lenguaje de la especificación (JSON 
 
 ### ¿Cómo arrancar el proyecto?
 
-> Prerrequisito: para trabajar con este proyecto es necesario tener instalado `node`.
+> Prerrequisito: para trabajar con este proyecto es necesario tener instalado [`node`](https://nodejs.org/en/download/package-manager/).
 
 Lo primero (un vez descargado, clonado o hecho un _fork_ del proyecto) es instalar sus dependencias. Todas ellas están definidas en el fichero `package.json`, por lo que con ejecutar el comando `npm install` desde la raíz del proyecto debería ser suficiente.
 
